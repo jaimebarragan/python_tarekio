@@ -1,3 +1,17 @@
+#Reglas:
+#El programa debe arrojar un mensaje de bienvenida: "Bienvenido a la práctica de Python"
+#El usuario asignado debe ser usuario
+#La contraseña asignada será 123
+#se solicitará un captcha que debe ser generado con las siguientes partes:
+#la primera parte del captcha serán los 3 primeros dígitos (123)
+#la segunda parte del captcha será el número 4 y este deberá hallarse a través de 5 operaciones matemáticas. 
+#el resultado del captcha será la resta de las dos partes anteriores
+#Si el nombre de usuario no es correcto, arrojará error y finalizará el programa.
+#Si la contraseña no es correcta, arrojará error y finalizará el programa.
+#si el captcha no es correcto, arrojará error y finalizará el programa.
+#Si los 3 datos están bien ingresados mostrará el mensaje Sesión Iniciada
+
+
 #Se Inicializan las variables internas que usará el programa.
 UsuarioGuardado="usuario" #Variable de tipo string
 ClaveGuardada=123 #Variable de tipo entero
