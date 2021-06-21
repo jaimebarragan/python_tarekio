@@ -67,54 +67,55 @@ if UsuarioIngresado==UsuarioGuardado:
                 for x in range(len(listamenu)):
                     print(f"{x+1} - {listamenu[x]}")
                 opcionelegida=int(input("Por favor selecciona una opción: ")) #Pedimos la opción que el usuario desea y la guardamos.
-                #Guardamos el texto de la opción que el usuario elige en una variable
-                opcionelegidalista=listamenu[opcionelegida-1] #El -1 es para arreglar el desfaze visual de los números del menu.
-                #Comparamos el texto de la opción elegida, con los textos guardados para activar funcionalidad escalable.
-                if opcionelegidalista==opc1:
-                    print(opc1) 
-                    time.sleep(2)
-                elif opcionelegidalista==opc2:
-                    print(opc2)
-                    time.sleep(2)
-                elif opcionelegidalista==opc3:
-                    print(opc3)
-                    time.sleep(2)
-                elif opcionelegidalista==opc4:
-                    print(opc4)
-                    time.sleep(2)
-                elif opcionelegidalista==opc5:
-                    print(opc5)
-                    time.sleep(2)
-                elif opcionelegidalista==opc6:
-                    print(opc6)
-                    nuevofavorito=int(input("Ingrese el número de la opción que desea mover: ")) #solicitamos la opción a mover.
-                    if nuevofavorito == 1 or nuevofavorito ==2 or nuevofavorito ==3 or nuevofavorito ==4 or nuevofavorito==5: #ejecutamos sólo si se puede mover.
-                        numerorndm=random.randint(0,10000)#generamos un número aleatorio y lo pedimos en la verificación.
-                        if int(input(f"Por favor escriba el siguiente número: {numerorndm}:")) == numerorndm:
-                            if int(input("Por favor resuelva la siguiente suma 9 + 9:"))==18:
-                                #guardamos en la variable mover, el elemento de la lista elegido por el usuario.
-                                mover=listamenu[nuevofavorito-1]
-                                listamenu.remove(mover)#eliminamos el objeto de la lista
-                                listamenu.insert(0,mover)#lo agregamos de nuevo en la posición inicial
-                            #Inicia la cascada de errores según las condiciones.
+                if opcionelegida > 0 and opcionelegida < 8: #Confirmamos que la opción elegida sea válida para evitar problemas con la lista
+                    #Guardamos el texto de la opción que el usuario elige en una variable
+                    opcionelegidalista=listamenu[opcionelegida-1] #El -1 es para arreglar el desfaze visual de los números del menu.
+                    #Comparamos el texto de la opción elegida, con los textos guardados para activar funcionalidad escalable.
+                    if opcionelegidalista==opc1:
+                        print(opc1) 
+                        time.sleep(2)
+                    elif opcionelegidalista==opc2:
+                        print(opc2)
+                        time.sleep(2)
+                    elif opcionelegidalista==opc3:
+                        print(opc3)
+                        time.sleep(2)
+                    elif opcionelegidalista==opc4:
+                        print(opc4)
+                        time.sleep(2)
+                    elif opcionelegidalista==opc5:
+                        print(opc5)
+                        time.sleep(2)
+                    elif opcionelegidalista==opc6:
+                        print(opc6)
+                        nuevofavorito=int(input("Ingrese el número de la opción que desea mover: ")) #solicitamos la opción a mover.
+                        if nuevofavorito == 1 or nuevofavorito ==2 or nuevofavorito ==3 or nuevofavorito ==4 or nuevofavorito==5: #ejecutamos sólo si se puede mover.
+                            numerorndm=random.randint(0,10000)#generamos un número aleatorio y lo pedimos en la verificación.
+                            if int(input(f"Por favor escriba el siguiente número: {numerorndm}:")) == numerorndm:
+                                if int(input("Por favor resuelva la siguiente suma 9 + 9:"))==18:
+                                    #guardamos en la variable mover, el elemento de la lista elegido por el usuario.
+                                    mover=listamenu[nuevofavorito-1]
+                                    listamenu.remove(mover)#eliminamos el objeto de la lista
+                                    listamenu.insert(0,mover)#lo agregamos de nuevo en la posición inicial
+                                #Inicia la cascada de errores según las condiciones.
+                                else:
+                                    os.system("cls")
+                                    print("Error comprobación 2.")
+                                    time.sleep(2)
                             else:
                                 os.system("cls")
-                                print("Error comprobación 2.")
+                                print("Error comprobación 1.")
                                 time.sleep(2)
                         else:
                             os.system("cls")
-                            print("Error comprobación 1.")
+                            print("Opción inválida.")
                             time.sleep(2)
-                    else:
+                            continue #reiniciamos el ciclo while
+                    elif opcionelegidalista==opc7:
                         os.system("cls")
-                        print("Opción inválida.")
+                        print("Sesión Cerrada")
                         time.sleep(2)
-                        continue #reiniciamos el ciclo while
-                elif opcionelegidalista==opc7:
-                    os.system("cls")
-                    print("Sesión Cerrada")
-                    time.sleep(2)
-                    exit()
+                        exit()
                 else:
                     contadorerrores+=1 #aumentamos el contador de errores
                     os.system("cls")
